@@ -136,7 +136,7 @@ def uploadToAppCenter(apk, appName, distro) {
 
 def buildUnsignedApk(inEnv){
   switch(inEnv){
-    case DEV_ENV;
+    case DEV_ENV:
       sh '''
           export ANDROID_HOME=/tools/androidsdk
           export PATH=$ANDROID_HOME/tools:$PATH
@@ -144,7 +144,7 @@ def buildUnsignedApk(inEnv){
           ./gradlesw assembleDevRelease
       '''
       break;
-    case UAT_ENV;
+    case UAT_ENV:
       sh '''
           export ANDROID_HOME=/tools/androidsdk
           export PATH=$ANDROID_HOME/tools:$PATH
@@ -152,7 +152,7 @@ def buildUnsignedApk(inEnv){
           ./gradlesw assembleUatRelease
       '''
     break;
-    case STAGE_ENV;
+    case STAGE_ENV:
       sh '''
           export ANDROID_HOME=/tools/androidsdk
           export PATH=$ANDROID_HOME/tools:$PATH
@@ -160,7 +160,7 @@ def buildUnsignedApk(inEnv){
           ./gradlesw assembleStageRelease
       '''
     break;
-    case PROD_ENV;
+    case PROD_ENV:
       sh '''
           export ANDROID_HOME=/tools/androidsdk
           export PATH=$ANDROID_HOME/tools:$PATH
