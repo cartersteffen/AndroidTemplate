@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "183460935352",
+    "firebase_url": "https://sonic-dev-91637.firebaseio.com",
+    "project_id": "sonic-dev-91637",
+    "storage_bucket": "sonic-dev-91637.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:183460935352:android:bf73cb8b4acbb348",
+        "android_client_info": {
+          "package_name": "com.optum.mobile.sonic.dev"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "183460935352-c02bck9cgd8g8e5bgkc04hbc5hmsusvb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDPzongDWWsPgJHbWQUw14hwxytQ7KxcE0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

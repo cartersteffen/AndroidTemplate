@@ -1,0 +1,31 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme"
+           parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/dpl_blue_2</item>
+        <item name="colorPrimaryDark">@color/dpl_blue_1</item>
+        <item name="colorAccent">@color/dpl_gold</item>
+<!--        <item name="android:textViewStyle">@style/TextViewFontStyle</item>-->
+<!--        <item name="buttonStyle">@style/ButtonFontStyle</item>-->
+    </style>
+
+    <style name="AppTheme.NoActionBar" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="LauncherTheme" parent="AppTheme">
+        <item name="android:windowBackground">@drawable/dpl_gradient_6</item>
+    </style>
+
+<!--    <style name="TextViewFontStyle" parent="android:Widget.TextView">-->
+<!--        <item name="android:fontFamily">@font/frutiger</item>-->
+<!--    </style>-->
+
+<!--    <style name="ButtonFontStyle" parent="android:Widget.Button">-->
+<!--        <item name="android:fontFamily">@font/uhc_sans</item>-->
+<!--    </style>-->
+
+</resources>

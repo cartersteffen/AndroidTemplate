@@ -1,0 +1,4 @@
+<resources>
+    <string name="dollar_amount">$%s</string>
+    <string name="space_delineated_values">%s %s</string>
+</resources>

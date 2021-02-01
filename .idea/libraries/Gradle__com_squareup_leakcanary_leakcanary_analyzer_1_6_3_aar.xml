@@ -1,0 +1,16 @@
+<component name="libraryTable">
+  <library name="Gradle: com.squareup.leakcanary:leakcanary-analyzer:1.6.3@aar">
+    <CLASSES>
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/5b79c1a90d1d1a051e2830f38c70080b/jetified-leakcanary-analyzer-1.6.3/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/11205bc79880f5b6f38fc66f06c826e2/jetified-leakcanary-analyzer-1.6.3/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/11205bc79880f5b6f38fc66f06c826e2/jetified-leakcanary-analyzer-1.6.3/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/11205bc79880f5b6f38fc66f06c826e2/jetified-leakcanary-analyzer-1.6.3/AndroidManifest.xml" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.squareup.leakcanary/leakcanary-analyzer/1.6.3/35688ba74ab61eb330c952b5e1a6e811eb3392e0/leakcanary-analyzer-1.6.3-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.squareup.leakcanary/leakcanary-analyzer/1.6.3/e48e8ce817dbb162ee46fcc03fb4318d15efd7d7/leakcanary-analyzer-1.6.3-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

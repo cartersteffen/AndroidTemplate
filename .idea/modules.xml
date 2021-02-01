@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/AndroidTemplate.iml" filepath="$PROJECT_DIR$/.idea/modules/AndroidTemplate.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/AndroidTemplate.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/AndroidTemplate.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/cleanarchitecturehelper/AndroidTemplate.cleanarchitecturehelper.iml" filepath="$PROJECT_DIR$/.idea/modules/cleanarchitecturehelper/AndroidTemplate.cleanarchitecturehelper.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/dpl-optumRelease/AndroidTemplate.dpl-optumRelease.iml" filepath="$PROJECT_DIR$/.idea/modules/dpl-optumRelease/AndroidTemplate.dpl-optumRelease.iml" />
+    </modules>
+  </component>
+</project>

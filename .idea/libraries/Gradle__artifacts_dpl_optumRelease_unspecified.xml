@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: artifacts:dpl-optumRelease:unspecified">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/dpl-optumRelease/build/.transforms/d7f2fbfdf0ef9e842b52d1e1b52d2be0/jetified-dpl-optumRelease/jars/classes.jar!/" />
+      <root url="file://$PROJECT_DIR$/dpl-optumRelease/build/.transforms/d7f2fbfdf0ef9e842b52d1e1b52d2be0/jetified-dpl-optumRelease/res" />
+      <root url="file://$PROJECT_DIR$/dpl-optumRelease/build/.transforms/d7f2fbfdf0ef9e842b52d1e1b52d2be0/jetified-dpl-optumRelease/AndroidManifest.xml" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

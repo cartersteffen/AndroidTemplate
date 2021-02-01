@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: artifacts:cleanarchitecturehelper:unspecified">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/cleanarchitecturehelper/build/.transforms/5edce1dbbaeea0c3ccbc71782b470146/jetified-cleanarchitecturehelper-release/res" />
+      <root url="file://$PROJECT_DIR$/cleanarchitecturehelper/build/.transforms/5edce1dbbaeea0c3ccbc71782b470146/jetified-cleanarchitecturehelper-release/AndroidManifest.xml" />
+      <root url="jar://$PROJECT_DIR$/cleanarchitecturehelper/build/.transforms/5edce1dbbaeea0c3ccbc71782b470146/jetified-cleanarchitecturehelper-release/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -1,0 +1,306 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: "jacoco"
+apply plugin: 'io.fabric'
+
+android {
+    ext.versionMajor = 1
+    ext.versionMinor = 0
+    compileSdkVersion 29
+    lintOptions {
+        checkDependencies true
+        checkReleaseBuilds true
+        abortOnError false
+        xmlReport true
+        disable 'GoogleAppIndexingWarning'
+        disable 'IconLauncherShape'//Temporary until we get proper launcher icons
+        lintConfig file("lint.xml")
+    }
+    androidExtensions {
+        experimental = true
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    testOptions {
+        unitTests {
+            includeAndroidResources = true
+        }
+    }
+    defaultConfig {
+        applicationId "com.optum.mobile.template"
+        minSdkVersion 21
+        targetSdkVersion 29
+        versionCode computeVersionCode(versionMajor, versionMinor)
+        versionName computeVersionName(versionMajor, versionMinor)
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        debug {
+            testCoverageEnabled true
+        }
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    flavorDimensions "environment"
+    productFlavors {
+        dev {
+            dimension "environment"
+            applicationId "com.optum.mobile.template.dev"
+            targetSdkVersion 29
+            versionCode computeVersionCode(versionMajor, versionMinor)
+            versionName computeVersionName(versionMajor, versionMinor)
+            buildConfigField "String", "baseUrl", "\"https://api-stg.optum.com:8443/api/dev/template/\""
+            resValue "string", "app_name", "Template_dev"
+        }
+
+        stage {
+            dimension "environment"
+            applicationId "com.optum.mobile.template.dev"
+            targetSdkVersion 29
+            versionCode computeVersionCode(versionMajor, versionMinor)
+            versionName computeVersionName(versionMajor, versionMinor)
+            buildConfigField "String", "baseUrl", "\"https://api-stg.optum.com:8443/api/stage/template/\""
+            resValue "string", "app_name", "Template_stage"
+        }
+
+        prod {
+            dimension "environment"
+            applicationId "com.optum.mobile.template.dev"
+            targetSdkVersion 29
+            versionCode computeVersionCode(versionMajor, versionMinor)
+            versionName computeVersionName(versionMajor, versionMinor)
+            buildConfigField "String", "baseUrl", "\"https://api.optum.com:8443/api/template/\""
+            resValue "string", "app_name", "Template"
+        }
+    }
+    configurations.all {
+        resolutionStrategy.eachDependency { DependencyResolveDetails details ->
+            def requested = details.requested
+            if (requested.group == "com.android.support") {
+                if (!requested.name.startsWith("multidex")) {
+                    details.useVersion "26.+"
+                }
+            }
+        }
+
+        all*.exclude group: 'com.google.guava', module: 'listenablefuture'
+    }
+
+    buildToolsVersion '28.0.3'
+}
+
+def static computeVersionName(int versionMajor, int versionMinor) {
+    // Basic <major>.<minor> version name
+    return String.format('%d.%d.%d', versionMajor, versionMinor, Integer.valueOf(System.env.BUILD_NUMBER ?: 0))
+}
+
+// Will return 120042 for Jenkins build #42
+def static computeVersionCode(int versionMajor, int versionMinor) {
+    // Major + minor + Jenkins build number (where available)
+    return (versionMajor * 100000) + (versionMinor * 10000) + Integer.valueOf(System.env.BUILD_NUMBER ?: 0)
+}
+
+configurations {
+    ktlint
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'androidx.appcompat:appcompat:1.2.0-rc01'
+    implementation ('androidx.core:core-ktx:1.1.0-alpha05'){
+        exclude group: "com.google.guava", module: "listenablefuture"
+    }
+    implementation project(path: ':cleanarchitecturehelper')
+    implementation project(path: ':dpl-optumRelease')
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation 'com.google.android.material:material:1.2.0-beta01'
+    implementation 'androidx.recyclerview:recyclerview:1.1.0'
+    implementation 'androidx.cardview:cardview:1.0.0'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'com.squareup.retrofit2:retrofit:2.6.1'
+    implementation 'io.reactivex.rxjava2:rxkotlin:2.3.0'
+    implementation 'com.google.dagger:dagger:2.24'
+    implementation 'com.squareup.retrofit2:converter-gson:2.6.1'
+    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.5.0'
+    implementation 'io.reactivex.rxjava2:rxandroid:2.1.0'
+    implementation 'junit:junit:4.13'
+    implementation 'com.nhaarman.mockitokotlin2:mockito-kotlin:2.0.0-RC1'
+    implementation 'android.arch.lifecycle:runtime:1.1.1'
+    implementation 'android.arch.lifecycle:extensions:1.1.1'
+    implementation 'android.arch.lifecycle:compiler:1.1.1'
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.12.1'
+    implementation 'com.squareup.retrofit2:converter-scalars:2.5.0'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.1'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.0'
+    implementation 'com.jakewharton.rxrelay2:rxrelay:2.0.0'
+    implementation 'com.jakewharton.rxbinding2:rxbinding:2.2.0'
+    implementation 'androidx.browser:browser:1.2.0'
+    implementation 'com.adobe.mobile:adobeMobileLibrary:4.15.0'
+    implementation "android.arch.lifecycle:extensions:1.1.1"
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.12.1'
+    implementation 'com.squareup.retrofit2:converter-scalars:2.5.0'
+    implementation 'com.github.bumptech.glide:glide:4.9.0'
+    //TODO Figure out how to remove this.  I think it can probably be done with proguard configuration
+    implementation('com.squareup.retrofit2:converter-simplexml:2.2.0', {
+        exclude group: 'xpp3', module: 'xpp3'
+        exclude group: 'stax', module: 'stax-api'
+        exclude group: 'stax', module: 'stax'
+    })
+    // Timber
+    implementation 'com.jakewharton.timber:timber:4.5.1'
+    // Firebase
+    implementation 'com.google.firebase:firebase-core:17.2.2'
+    implementation 'com.google.firebase:firebase-messaging:20.1.0'
+    // Add dependency
+    implementation 'com.crashlytics.sdk.android:crashlytics:2.10.1'
+
+
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test:runner:1.3.0-alpha03'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0-alpha03'
+    testImplementation 'com.squareup.okhttp3:mockwebserver:3.11.0'
+    testImplementation 'org.assertj:assertj-core:3.10.0'
+    androidTestImplementation 'com.android.support.test:rules:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test:rules:1.0.2'
+    testImplementation 'android.arch.core:core-testing:1.1.1'
+    testImplementation 'org.apache.maven:maven-ant-tasks:2.1.3'
+    testImplementation 'org.robolectric:robolectric:4.0.2'
+
+    kapt 'com.android.databinding:compiler:3.1.4'
+    kapt 'com.google.dagger:dagger-compiler:2.21'
+    annotationProcessor "android.arch.lifecycle:compiler:1.1.1"
+    kapt 'com.github.bumptech.glide:compiler:4.9.0'
+    kapt "android.arch.lifecycle:compiler:1.1.1"
+
+
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:1.6.3'
+    releaseImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.6.3'
+    debugImplementation 'com.squareup.leakcanary:leakcanary-support-fragment:1.6.3'
+
+    // ktlint
+    ktlint "com.github.shyiko:ktlint:0.31.0"
+}
+
+repositories {
+    google()
+    mavenCentral()
+    maven {
+        url "https://maven.google.com"
+    }
+}
+
+task jacocoTestReport(type: JacocoReport, dependsOn: ['testDevDebugUnitTest']) {
+
+
+    def variant = "devDebug"
+
+    StringBuilder folderSb = new StringBuilder(variant.length() + 1)
+    for (int i = 0; i < variant.length(); i++) {
+        char c = variant.charAt(i)
+        if (Character.isUpperCase(c)) {
+            folderSb.append('/')
+            folderSb.append(Character.toLowerCase(c))
+        } else {
+            folderSb.append(c)
+        }
+    }
+    final folder = folderSb.toString()
+    project.android.testOptions {
+        unitTests.all {
+            jacoco {
+                includeNoLocationClasses = true
+            }
+        }
+    }
+
+    project.jacoco {
+        toolVersion = '0.8.3'
+    }
+
+
+    def buildDir = project.buildDir
+
+    def coverageSourceDirs = [
+            "src/main/java",
+            "src/main/kotlin"
+    ]
+
+    def fileFilter = [
+            '**/R.class',
+            '**/R$*.class',
+            '**/*$ViewInjector*.*',
+            '**/*_Factory.*',
+            '**/*_MembersInjector.*',
+            '**/*$ViewBinder*.*',
+            '**/BuildConfig.*',
+            '**/Manifest*.*',
+            '**/di/**',
+            '**/*Activity*.*',
+            '**/*Fragment*.*',
+            '**/*Adapter*.*',
+            '**/*ViewHolder*.*',
+            '**/reusableComponents/**',
+            '**/App.*',
+            '**/*Dao*.*',
+            '**/*View.*',
+            '**/models/**'
+    ]
+
+    def javaClasses = fileTree(
+            dir: "$buildDir/intermediates/classes/$folder",
+            excludes: fileFilter
+    )
+    def kotlinClasses = fileTree(
+            dir: "$buildDir/tmp/kotlin-classes/$variant",
+            excludes: fileFilter
+    )
+    //KotlinGeneratedFilter = true
+    group = "Reporting"
+    description = "Generate Jacoco coverage reports for the ${project.name} with the " +
+            "$variant variant."
+//    classDirectories = files([javaClasses], [kotlinClasses])
+//    additionalSourceDirs = files(coverageSourceDirs)
+//    sourceDirectories = files(coverageSourceDirs)
+    //executionData = files(["${project.buildDir}/jacoco/test${capVariant}UnitTest.exec", "${project.buildDir}/outputs/code-coverage/connected/flavors/DEV/*coverage.ec"])
+//    executionData = fileTree(dir: project.buildDir, includes: [
+//            'outputs/code-coverage/connected/flavors/DEV/*coverage.ec',
+//            'jacoco/testDevDebugUnitTest.exec'
+//    ])
+    reports {
+        xml.enabled = true
+        html.enabled = true
+    }
+
+
+}
+task ktlint(type: JavaExec, group: "kotlin verification") {
+    description = "Check Kotlin code style."
+    classpath = configurations.ktlint
+    main = "com.github.shyiko.ktlint.Main"
+    args "src/**/*.kt"
+    // to generate report in checkstyle format prepend following args:
+    // "--reporter=plain", "--reporter=checkstyle,output=${buildDir}/ktlint.xml"
+    // see https://github.com/shyiko/ktlint#usage for more
+}
+check.dependsOn ktlint
+
+task ktlintFormat(type: JavaExec, group: "formatting") {
+    description = "Fix Kotlin code style deviations."
+    classpath = configurations.ktlint
+    main = "com.github.shyiko.ktlint.Main"
+    args "-F", "src/**/*.kt"
+}
+
+
+kotlin { experimental { coroutines 'enable' } }
+apply plugin: 'com.google.gms.google-services'

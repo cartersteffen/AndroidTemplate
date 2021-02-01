@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: com.adobe.mobile:adobeMobileLibrary:4.15.0">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.adobe.mobile/adobeMobileLibrary/4.15.0/6a79f67eaa285746d9744f964830620503eb1109/adobeMobileLibrary-4.15.0.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.adobe.mobile/adobeMobileLibrary/4.15.0/8e4367325393cdc7d03f40c9a82b6b23e2caa097/adobeMobileLibrary-4.15.0-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES />
+  </library>
+</component>
