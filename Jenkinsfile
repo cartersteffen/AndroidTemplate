@@ -38,7 +38,7 @@ pipeline {
       steps {
         checkout scm
         script{
-          shaName = sh returnStdout: true, script: \'git rev-parse HEAD\'
+          shaName = sh returnStdout: true, script: 'git rev-parse HEAD'
           shaName = shaName.trim()
           branchName = env.BRANCH_NAME
         }
@@ -50,6 +50,11 @@ pipeline {
     }
 
       stage('Test/Build') {
+        when {
+              anyOf {
+                branch 'master' 
+              }
+        }
         parallel {
           stage('Unit Test') {
             steps {
@@ -58,11 +63,6 @@ pipeline {
           }
 
           stage('Build') {
-            when {
-              anyOf {
-                branch 'master' 
-              }
-            }
             steps {
               script {
                 unstash 'Repo'
