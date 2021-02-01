@@ -42,8 +42,8 @@ pipeline {
           shaName = shaName.trim()
           branchName = env.BRANCH_NAME
         }
-        echo "shaName: $shaName
-        echo "branchname: $branchName
+        echo "shaName: $shaName"
+        echo "branchname: $branchName"
         
         stash name:'Repo'
       }
