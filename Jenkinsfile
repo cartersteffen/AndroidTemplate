@@ -126,7 +126,7 @@ def uploadToAppCenter(apk, appName, distro) {
   def secureUploadUrl = sh returnStdout: true, script: "curl -X POST --header 'Content-Type: application/json' --header 'X-API-Token: ${APPCENTER_APITOKEN}' 'https://api.appcenter.ms/v0.1/apps/${APPCENTER_ORG}/${appName}/release_uploads'"
   def uploadInfo = parseJsonText(secureUploadUrl)
   
-  sh script: "curl -F 'ipa=@$apk' $uploadInfo.upload_url
+  sh script: "curl -F 'ipa=@$apk' $uploadInfo.upload_url"
   
   def releaseUrl = sh returnStdout: true, script: """curl -X PATCH --header "Content-Type: application/json' --header 'X-API-Token: ${APPCENTER_APITOKEN}' -d {"status": "committed"}' 'https://api.appcenter.ms/v0.1/apps/${APPCENTER_ORG}/${appName}/release_uploads/$uploadInfo.upload_id'"""
   def releaseInfo = parseJsonText(releaseUrl)
