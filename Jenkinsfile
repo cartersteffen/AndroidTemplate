@@ -18,7 +18,7 @@ pipeline {
       APK_PROD = "temp_prod.apk"
       
       APPCENTER_BASEURL = 'https://api.appcenter.ms/'
-      APPCENTER_APITOKEN = credentials('51c3e79f7f9e2be2e04ec18d8aa6e4a9661aa7cc')
+      APPCENTER_APITOKEN = credentials('AppCenter_API_Token')
       APPCENTER_ORG = 'cartersteffen'
     
       //Variables for script use
