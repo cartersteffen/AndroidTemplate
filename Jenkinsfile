@@ -68,6 +68,7 @@ pipeline {
                 unstash 'Repo'
                 
                 sh """
+                    source /etc/profile
                     . /etc/profile.d/jenkins.sh
                     export ANDROID_HOME=/tools/androidssk
                     export PATH=$ANDROID_HOME/tools:$PATH
