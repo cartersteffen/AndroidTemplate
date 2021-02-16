@@ -7,11 +7,8 @@ import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.optum.mobile.template.R
-import com.optum.mobile.template.core.utils.gone
-import com.optum.mobile.template.core.utils.visible
 import com.optum.mobile.template.data.model.ExampleResponse
 import com.optum.mobile.template.di.component.ExampleComponent
-import com.optum.mobile.template.presentation.fragment.base.BaseFragment
 import com.optum.mobile.template.presentation.fragment.base.NavigationBarFragment
 import com.optum.mobile.template.presentation.state.DataState
 import kotlinx.android.synthetic.main.fragment_example.*

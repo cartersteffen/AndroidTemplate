@@ -3,9 +3,6 @@ package com.optum.mobile.template.presentation.fragment.base
 import android.app.Activity
 import android.content.Context
 import androidx.appcompat.widget.Toolbar
-import androidx.fragment.app.Fragment
-import com.google.firebase.analytics.FirebaseAnalytics
-import com.optum.mobile.template.di.HasComponent
 
 abstract class ToolbarFragment : BaseFragment() {
 

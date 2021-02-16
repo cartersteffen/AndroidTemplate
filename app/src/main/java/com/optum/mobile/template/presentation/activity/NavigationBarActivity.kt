@@ -23,8 +23,6 @@ class NavigationBarActivity : BaseActivity(), HasComponent<NavigationBarComponen
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_navigation_bar)
-
-
         addNavigationBarFragment(ExampleFragment(), false)
     }
 
@@ -41,7 +39,7 @@ class NavigationBarActivity : BaseActivity(), HasComponent<NavigationBarComponen
     }
 
     override fun showNavigationBar(shouldShow: Boolean) {
-        if(shouldShow) {
+        if (shouldShow) {
             bottom_navigation.visible()
         } else {
             bottom_navigation.gone()
