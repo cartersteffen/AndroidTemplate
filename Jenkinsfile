@@ -69,6 +69,7 @@ pipeline {
                 
                 sh """
                     export PATH=$ANDROID_HOME/tools:$PATH
+                    chmod +x ./gradlew
                     ./gradlew ktlint
                 """
                 
