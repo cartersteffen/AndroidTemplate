@@ -139,7 +139,6 @@ def buildUnsignedApk(inEnv){
       sh '''
           export ANDROID_HOME=/tools/androidsdk
           export PATH=$ANDROID_HOME/tools:$PATH
-          . /etc/profile.d/jenkins.sh
           ./gradlesw assembleDevRelease
       '''
       break;
@@ -147,7 +146,6 @@ def buildUnsignedApk(inEnv){
       sh '''
           export ANDROID_HOME=/tools/androidsdk
           export PATH=$ANDROID_HOME/tools:$PATH
-          . /etc/profile.d/jenkins.sh
           ./gradlesw assembleUatRelease
       '''
     break;
@@ -155,7 +153,6 @@ def buildUnsignedApk(inEnv){
       sh '''
           export ANDROID_HOME=/tools/androidsdk
           export PATH=$ANDROID_HOME/tools:$PATH
-          . /etc/profile.d/jenkins.sh
           ./gradlesw assembleStageRelease
       '''
     break;
@@ -163,7 +160,6 @@ def buildUnsignedApk(inEnv){
       sh '''
           export ANDROID_HOME=/tools/androidsdk
           export PATH=$ANDROID_HOME/tools:$PATH
-          . /etc/profile.d/jenkins.sh
           ./gradlesw assembleProdRelease
       '''
     break;
