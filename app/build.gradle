@@ -3,7 +3,7 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: "jacoco"
-apply plugin: 'io.fabric'
+//apply plugin: 'io.fabric'
 
 android {
     ext.versionMajor = 1
@@ -160,7 +160,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-core:17.2.2'
     implementation 'com.google.firebase:firebase-messaging:20.1.0'
     // Add dependency
-    implementation 'com.crashlytics.sdk.android:crashlytics:2.10.1'
+//    implementation 'com.crashlytics.sdk.android:crashlytics:2.10.1'
 
 
     testImplementation 'junit:junit:4.12'
