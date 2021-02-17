@@ -139,32 +139,28 @@ def buildUnsignedApk(inEnv){
       sh '''
           export ANDROID_HOME=/tools/androidsdk
           export PATH=$ANDROID_HOME/tools:$PATH
-          . /etc/profile.d/jenkins.sh
-          ./gradlesw assembleDevRelease
+          ./gradlew assembleDevRelease
       '''
       break;
     case UAT_ENV:
       sh '''
           export ANDROID_HOME=/tools/androidsdk
           export PATH=$ANDROID_HOME/tools:$PATH
-          . /etc/profile.d/jenkins.sh
-          ./gradlesw assembleUatRelease
+          ./gradlew assembleUatRelease
       '''
     break;
     case STAGE_ENV:
       sh '''
           export ANDROID_HOME=/tools/androidsdk
           export PATH=$ANDROID_HOME/tools:$PATH
-          . /etc/profile.d/jenkins.sh
-          ./gradlesw assembleStageRelease
+          ./gradlew assembleStageRelease
       '''
     break;
     case PROD_ENV:
       sh '''
           export ANDROID_HOME=/tools/androidsdk
           export PATH=$ANDROID_HOME/tools:$PATH
-          . /etc/profile.d/jenkins.sh
-          ./gradlesw assembleProdRelease
+          ./gradlew assembleProdRelease
       '''
     break;
   }
