@@ -64,7 +64,9 @@ pipeline {
 
           stage('Build') {
             agent {
-              dockerfile true
+              docker {
+                image 'android-build'
+              }
             }
             steps {
               script {
