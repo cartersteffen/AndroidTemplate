@@ -63,8 +63,8 @@ pipeline {
           }
 
           stage('Build') {
-            docker { 
-              image 'android-build' 
+            label { 
+              docker 'android-build' 
             }
             steps {
               script {
