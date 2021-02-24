@@ -63,8 +63,10 @@ pipeline {
           }
 
           stage('Build') {
-            label { 
-              docker 'android-build' 
+            agent {
+              label { 
+                docker 'android-build' 
+              }
             }
             steps {
               script {
