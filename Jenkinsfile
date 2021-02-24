@@ -63,7 +63,9 @@ pipeline {
           }
 
           stage('Build') {
-            
+            docker { 
+              image 'android-build' 
+            }
             steps {
               script {
                 unstash 'Repo'
