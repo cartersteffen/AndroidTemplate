@@ -64,7 +64,10 @@ pipeline {
 
           stage('Build') {
             agent {
-              dockerfile true
+              docker {
+                image 'android-build'
+                args '-v /var/run/docker.sock:/var/run/docker.sock'
+              }
             }
             steps {
               script {
