@@ -64,8 +64,8 @@ pipeline {
 
           stage('Build') {
             agent {
-              label { 
-                docker 'android-build' 
+              docker { 
+                image 'android-build' 
               }
             }
             steps {
