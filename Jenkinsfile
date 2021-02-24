@@ -65,6 +65,7 @@ pipeline {
           stage('Build') {
             agent {
               dockerfile true
+              args '-v /var/run/docker.sock:/var/run/docker.sock'
             }
             steps {
               script {
