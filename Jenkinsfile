@@ -65,7 +65,7 @@ pipeline {
           stage('Build') {
             agent {
               docker {
-                image 'cartersteffen/android-build'
+                image 'cartersteffen/android-build:firsttry'
                 args '-v /var/run/docker.sock:/var/run/docker.sock'
               }
             }
